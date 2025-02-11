@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Goldfish Labs</title>
-        <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="icon" type="image/x-icon" href="logo.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
     <style>
         body {
             font-family: 'Orbitron', sans-serif;
@@ -15,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('image_bg.jpg') no-repeat center center/cover;
+            background: url('background.jpg') no-repeat center center/cover;
             color: #00FFFF;
             text-align: center;
             flex-direction: column;
@@ -72,6 +70,7 @@
     </style>
 </head>
 <body>
+    <img src="favicon.ico" alt="Goldfish Labs Logo" class="logo">
     <h1>Goldfish Labs</h1>
     <p>Something innovative is coming soon. Stay tuned!</p>
     <div id="countdown"></div>
@@ -84,27 +83,10 @@
     </div>
     
     <script>
-        // Firebase Configuration
-        const firebaseConfig = {
-  apiKey: "AIzaSyCP6o95KAeD_LJdWNwQb4fUkfRG1AbVY_M",
-  authDomain: "goldfishsoftwarelabs.firebaseapp.com",
-  databaseURL: "https://goldfishsoftwarelabs-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "goldfishsoftwarelabs",
-  storageBucket: "goldfishsoftwarelabs.firebasestorage.app",
-  messagingSenderId: "135471832004",
-  appId: "1:135471832004:web:e2bbb8f084ccd8acf32291",
-  measurementId: "G-07K9EK3RB7"
-};
-        
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
         function saveEmail() {
             const email = document.getElementById("emailInput").value;
             if (email) {
-                db.collection("emails").add({ email: email })
-                    .then(() => alert("Email saved!"))
-                    .catch(error => console.error("Error saving email: ", error));
+                alert("Thank you! You'll be notified.");
             } else {
                 alert("Please enter a valid email.");
             }
