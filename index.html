@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Goldfish Labs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #121212;
-            color: #fff;
+            background: url('/mnt/data/DALL·E 2025-02-08 19.58.30 - A modern and dynamic banner image for 'Goldfish Software Labs', a cutting-edge software development company. The design should feature a sleek and fut.webp') no-repeat center center/cover;
+            color: #00FFFF;
             text-align: center;
             flex-direction: column;
         }
@@ -37,7 +37,7 @@
         button {
             padding: 10px 15px;
             border: none;
-            background: gold;
+            background: #00FFFF;
             color: #121212;
             font-weight: bold;
             cursor: pointer;
@@ -45,13 +45,18 @@
         }
         .social-links a {
             margin: 10px;
-            color: gold;
+            color: #00FFFF;
             text-decoration: none;
             font-size: 1.5rem;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <img src="/mnt/data/DALL·E 2024-12-12 02.44.58 - A professional and modern logo for 'Goldfish Software Labs'. The logo should feature a stylized goldfish, possibly incorporating elements of technolog.jpg" alt="Goldfish Labs Logo" class="logo">
     <h1>Goldfish Labs</h1>
     <p>Something innovative is coming soon. Stay tuned!</p>
     <div id="countdown"></div>
@@ -65,7 +70,7 @@
     
     <script>
         function updateCountdown() {
-            const launchDate = new Date("2025-06-01T00:00:00").getTime();
+            const launchDate = new Date("2025-02-15T00:00:00").getTime();
             const now = new Date().getTime();
             const timeLeft = launchDate - now;
             
