@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Goldfish Labs</title>
-    <link rel="icon" type="image/x-icon" href="logo.ico">
+        <link rel="icon" type="image/x-icon" href="logo.ico">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
     <style>
         body {
             font-family: 'Orbitron', sans-serif;
@@ -13,11 +15,24 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('image_bg.webp') no-repeat center center/cover;
+            background: url('image_bg.jpg') no-repeat center center/cover;
             color: #00FFFF;
             text-align: center;
             flex-direction: column;
+            position: relative;
         }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
         h1 {
             font-size: 3rem;
         }
@@ -60,9 +75,8 @@
     <h1>Goldfish Labs</h1>
     <p>Something innovative is coming soon. Stay tuned!</p>
     <div id="countdown"></div>
-    <input type="email" placeholder="Enter your email" />
-    <br>
-    <button>Notify Me</button>
+    <input type="email" id="emailInput" placeholder="Enter your email" />
+    <button onclick="saveEmail()">Notify Me</button>
     <div class="social-links">
         <a href="#">Twitter</a>
         <a href="#">LinkedIn</a>
@@ -70,6 +84,30 @@
     </div>
     
     <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        function saveEmail() {
+            const email = document.getElementById("emailInput").value;
+            if (email) {
+                db.collection("emails").add({ email: email })
+                    .then(() => alert("Email saved!"))
+                    .catch(error => console.error("Error saving email: ", error));
+            } else {
+                alert("Please enter a valid email.");
+            }
+        }
+
         function updateCountdown() {
             const launchDate = new Date("2025-02-15T00:00:00").getTime();
             const now = new Date().getTime();
