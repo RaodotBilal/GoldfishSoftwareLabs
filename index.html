@@ -9,6 +9,7 @@
     <meta name="keywords" content="Goldfish Labs, Software Development, Innovation, Technology, Coming Soon">
     <meta name="author" content="Goldfish Labs">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
             margin: 0;
@@ -26,15 +27,32 @@
             max-width: 600px;
         }
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+        h2 {
+            font-size: 2em;
         }
         #countdown {
-            font-size: 1.5em;
-            margin: 20px 0;
+            font-size: 1.8em;
+            margin: 25px 0;
         }
         p {
+            font-size: 1.3em;
+        }
+        .contact {
+            margin-top: 20px;
             font-size: 1.2em;
+        }
+        .contact a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .contact i {
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -48,12 +66,13 @@
             <span id="minutes"></span> Minutes 
             <span id="seconds"></span> Seconds
         </div>
+        <p>Scroll Down</p>
         <p class="contact">For inquiries, contact us at <a href="mailto:info.goldfishsoftwarelabs@gmail.com
-">contact@goldfishlabs.com</a></p>
+"><i class="fa-solid fa-envelope"></i></a></p>
     </div>
     <script>
         function countdownTimer() {
-            const launchDate = new Date("Feb 18, 2025 00:00:00").getTime();
+            const launchDate = new Date("Feb 15, 2025 00:00:00").getTime();
             const timer = setInterval(function() {
                 const now = new Date().getTime();
                 const distance = launchDate - now;
