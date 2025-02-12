@@ -9,6 +9,34 @@
     <meta name="keywords" content="Goldfish Labs, Software Development, Innovation, Technology, Coming Soon">
     <meta name="author" content="Goldfish Labs">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        #countdown {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,6 +50,24 @@
         </div>
         <p>Scroll Down</p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function countdownTimer() {
+            const launchDate = new Date("Feb 15, 2025 00:00:00").getTime();
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "We have launched!";
+                    return;
+                }
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            }, 1000);
+        }
+        countdownTimer();
+    </script>
 </body>
 </html>
