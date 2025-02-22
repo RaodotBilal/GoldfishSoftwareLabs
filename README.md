@@ -1,2 +1,0 @@
-# GoldfishSoftwareLabs
-A university project
