@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Goldfish Software Labs - Innovative Software Solutions</title>
+    <meta name="description"
+        content="Goldfish Software Labs provides innovative software solutions, custom app development, and cutting-edge technology services.">
+    <meta name="keywords"
+        content="software development, IT solutions, app development, Goldfish Software Labs, technology services">
+    <meta name="author" content="Goldfish Software Labs">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/">
+
+    <!-- Open Graph Meta Tags (For Facebook, LinkedIn) -->
+    <meta property="og:title" content="Goldfish Software Labs - Innovative Software Solutions">
+    <meta property="og:description"
+        content="Goldfish Software Labs provides innovative software solutions, custom app development, and cutting-edge technology services.">
+    <meta property="og:image" content="https://yourwebsite.com/assets/preview.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Goldfish Software Labs - Innovative Software Solutions">
+    <meta name="twitter:description"
+        content="Goldfish Software Labs provides innovative software solutions, custom app development, and cutting-edge technology services.">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+    <meta name="twitter:site" content="@yourTwitterHandle">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        /* Gradient Button */
+        .gradient-btn {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            padding: 10px 16px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Mobile Sidebar */
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Slider Styling */
+        #heroSlider {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            width: 100vw;
+        }
+
+        #prevBtn,
+        #nextBtn {
+            z-index: 10;
+            cursor: pointer;
+            position: absolute;
+        }
+    </style>
+</head>
+
+
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="./Components/image.jpg" alt="Logo" class="w-12 h-12 rounded-full object-contain">
+                <a href="index.html" class="text-xl font-bold text-gray-900">Goldfish Software Labs</a>
+            </div>
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="Components/About.html" class="text-gray-600 hover:text-purple-600">About</a>
+                <a href="Components/Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
+                <a href="Components/Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
+                <a href="Components/Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
+                <a href="Components/Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
+                <a href="" class="gradient-btn px-4 py-2 rounded-lg">Get Started</a>
+            </nav>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu (Mobile) -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 z-50">
+        <button id="close-menu" class="text-gray-600 p-4">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <nav class="flex flex-col space-y-4">
+            <a href="Components/About.html" class="text-gray-600 hover:text-purple-600">About</a>
+            <a href="Components/Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
+            <a href="Components/Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
+            <a href="Components/Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
+            <a href="Components/Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
+            <a href="#GetStarted" class="gradient-btn">Get Started</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- <section
+        class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
+        style="background-image: url('./Components/4.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 max-w-lg">
+            <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
+            <p class="mt-2 text-lg sm:text-md">We Turn Your Vision into a Reality!</p>
+            <a href="#GetStarted" class="gradient-btn mt-4 inline-block">Get Started</a>
+        </div>
+    </section> -->
+
+
+    <section class="relative mt-16 text-center text-white">
+        <div class="relative w-full h-[500px] sm:h-[400px] overflow-hidden">
+            <div id="heroSlider" class="flex transition-transform duration-700 ease-in-out">
+                <div class="slide w-full h-[500px] sm:h-[400px] flex items-center justify-center bg-cover bg-center"
+                    style="background-image: url('./Components/1.jpg');"></div>
+                <div class="slide w-full h-[500px] sm:h-[400px] flex items-center justify-center bg-cover bg-center"
+                    style="background-image: url('./Components/2.jpg');"></div>
+                <div class="slide w-full h-[500px] sm:h-[400px] flex items-center justify-center bg-cover bg-center"
+                    style="background-image: url('./Components/3.jpg');"></div>
+                <div class="slide w-full h-[500px] sm:h-[400px] flex items-center justify-center bg-cover bg-center"
+                    style="background-image: url('./Components/4.jpg');"></div>
+                <!-- <div class="slide w-full h-[500px] sm:h-[400px] flex items-center justify-center bg-cover bg-center"
+                    style="background-image: url('./Components/5.jpg');"></div> -->
+            </div>
+
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+
+            <!-- Content -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+                <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
+                <p class="mt-2 text-lg sm:text-md">We Turn Your Vision into a Reality!</p>
+                <a href="#GetStarted" class="gradient-btn mt-4 inline-block">Get Started</a>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button id="prevBtn"
+                class="absolute left-5 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-700">
+                &#10094; <!-- Left Arrow -->
+            </button>
+            <button id="nextBtn"
+                class="absolute right-5 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-700">
+                &#10095; <!-- Right Arrow -->
+            </button>
+
+            <!-- Dots for Slide Indicator -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <span class="dot w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+                <span class="dot w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+                <span class="dot w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+                <span class="dot w-3 h-3 bg-white rounded-full opacity-50 cursor-pointer"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-8">Our Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Software Development -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <i class="fas fa-code text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Software Development</h3>
+                        <p class="text-gray-600">Custom software solutions to streamline your business processes.</p>
+                    </div>
+                </div>
+                <!-- Desktop Applications -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-green-100 rounded-full">
+                        <i class="fas fa-desktop text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Desktop Application Development</h3>
+                        <p class="text-gray-600">Robust and scalable desktop applications tailored to your needs.</p>
+                    </div>
+                </div>
+                <!-- Mobile Applications -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-purple-100 rounded-full">
+                        <i class="fas fa-mobile-alt text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Mobile App Development</h3>
+                        <p class="text-gray-600">User-friendly mobile applications for iOS and Android platforms.</p>
+                    </div>
+                </div>
+                <!-- Product Development -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-purple-100 rounded-full">
+                        <i class="fas fa-check text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Product Development</h3>
+                        <p class="text-gray-600">Build a product that customers love.</p>
+                    </div>
+                </div>
+                <!-- Product Design -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-pink-100 rounded-full">
+                        <i class="fas fa-paint-brush text-pink-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Product Design</h3>
+                        <p class="text-gray-600">Design beautiful and intuitive experiences.</p>
+                    </div>
+                </div>
+                <!-- User Research -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-green-100 rounded-full">
+                        <i class="fas fa-search text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">User Research</h3>
+                        <p class="text-gray-600">Understand your users and what they need.</p>
+                    </div>
+                </div>
+                <!-- SEO Services -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-yellow-100 rounded-full">
+                        <i class="fas fa-chart-line text-yellow-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">SEO & Digital Marketing</h3>
+                        <p class="text-gray-600">Boost your online presence with expert SEO and marketing strategies.
+                        </p>
+                    </div>
+                </div>
+                <!-- Growth Marketing -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <i class="fas fa-bullhorn text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Growth Marketing</h3>
+                        <p class="text-gray-600">Grow your user base and revenue.</p>
+                    </div>
+                </div>
+                <!-- Tech Strategy -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-yellow-100 rounded-full">
+                        <i class="fas fa-lightbulb text-yellow-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Tech Strategy & Consulting</h3>
+                        <p class="text-gray-600">Make smart decisions about technology.</p>
+                    </div>
+                </div>
+                <!-- Research & Analysis -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-red-100 rounded-full">
+                        <i class="fas fa-flask text-red-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Research & Data Analysis</h3>
+                        <p class="text-gray-600">Comprehensive research and data-driven insights for businesses.</p>
+                    </div>
+                </div>
+                <!-- Thesis & Academic Writing -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-pink-100 rounded-full">
+                        <i class="fas fa-book text-pink-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Thesis & Academic Writing</h3>
+                        <p class="text-gray-600">High-quality thesis, dissertation, and academic research writing
+                            services.</p>
+                    </div>
+                </div>
+                <!-- Fundraising -->
+                <div class="p-6 bg-white shadow-lg rounded-lg flex space-x-4 items-start hover:shadow-xl transition">
+                    <div class="p-3 bg-red-100 rounded-full">
+                        <i class="fas fa-hand-holding-usd text-red-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Fundraising & Investment</h3>
+                        <p class="text-gray-600">Raise money from investors who believe in your vision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Clients Section  id="clients" -->
+
+    <section class="py-16 bg-gray-100 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-8">What Our Clients Say</h2>
+
+            <!-- Swiper Container -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide p-6 shadow-lg rounded-lg bg-white">
+                        <p>"Goldfish Software Labs exceeded our expectations!"</p>
+                        <div class="font-bold mt-2">Sarah M.</div>
+                        <div class="text-yellow-500 mt-1">★★★★★</div>
+                    </div>
+                    <div class="swiper-slide p-6 shadow-lg rounded-lg bg-white">
+                        <p>"They built an app that perfectly matches our business needs."</p>
+                        <div class="font-bold mt-2">John D.</div>
+                        <div class="text-yellow-500 mt-1">★★★★★</div>
+                    </div>
+                    <div class="swiper-slide p-6 shadow-lg rounded-lg bg-white">
+                        <p>"Our digital marketing has improved tremendously!"</p>
+                        <div class="font-bold mt-2">Amanda K.</div>
+                        <div class="text-yellow-500 mt-1">★★★★☆</div>
+                    </div>
+                    <div class="swiper-slide p-6 shadow-lg rounded-lg bg-white">
+                        <p>"Goldfish Software Labs exceeded our expectations!"</p>
+                        <div class="font-bold mt-2">Waleed M.</div>
+                        <div class="text-yellow-500 mt-1">★★★★★</div>
+                    </div>
+                    <div class="swiper-slide p-6 shadow-lg rounded-lg bg-white">
+                        <p>"Goldfish Software Labs exceeded our expectations!"</p>
+                        <div class="font-bold mt-2">Shayan M.</div>
+                        <div class="text-yellow-500 mt-1">★★★★★</div>
+                    </div>
+                </div>
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 text-center">
+        <p>&copy; 2025 Goldfish Software Labs. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+        const closeMenu = document.getElementById("close-menu");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.add("open");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+        });
+    </script>
+
+
+    <!-- Swiper Initialization -->
+    <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                640: { slidesPerView: 2 },  /* Tablets */
+                1024: { slidesPerView: 3 } /* Desktops */
+            }
+        });
+    });
+    </script> -->
+
+
+    <!-- Banner -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize Swiper for "What Our Clients Say"
+            var swiper = new Swiper(".swiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                pagination: { el: ".swiper-pagination", clickable: true },
+                breakpoints: {
+                    640: { slidesPerView: 2 },  /* Tablets */
+                    1024: { slidesPerView: 3 } /* Desktops */
+                }
+            });
+
+            // Banner Slider
+            const heroSlider = document.getElementById("heroSlider");
+            const slides = document.querySelectorAll(".slide");
+            const dots = document.querySelectorAll(".dot");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            let slideInterval;
+
+            function updateSlidePosition() {
+                heroSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, index) => {
+                    dot.style.opacity = index === currentIndex ? "1" : "0.5";
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlidePosition();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlidePosition();
+            }
+
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, 3000);
+            }
+
+            function stopAutoSlide() {
+                clearInterval(slideInterval);
+            }
+
+            prevBtn.addEventListener("click", function () {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+
+            nextBtn.addEventListener("click", function () {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", function () {
+                    currentIndex = index;
+                    updateSlidePosition();
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+            });
+
+            startAutoSlide(); // Start auto sliding on page load
+        });
+    </script>
+
+
+</body>
+
+</html>
