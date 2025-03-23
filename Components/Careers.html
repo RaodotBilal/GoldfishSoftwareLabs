@@ -29,7 +29,7 @@
     <meta name="twitter:site" content="@yourTwitterHandle">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="log.ico">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -105,7 +105,7 @@
     <!-- Hero Section -->
     <section
         class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
-        style="background-image: url('banner-image.jpg');">
+        style="background-image: url('career.jpeg');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 max-w-lg">
             <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
@@ -168,7 +168,7 @@
                 <!-- Job 2 -->
                 <div class="p-6 bg-gray-100 rounded-lg shadow-md text-left relative">
                     <h4 class="font-bold text-lg">UI/UX Designer</h4>
-                    <p class="text-gray-600 mt-2">Seeking a creative designer to craft beautiful user experiences.</p>
+                    <p class="text-gray-600 mt-2">Seeking a creative designer to craft beautiful user experiences for our Apps and Websites.</p>
                     <ul class="mt-2 text-gray-600 list-disc pl-5">
                         <li>Proficiency in Figma, Adobe XD</li>
                         <li>Strong understanding of UX principles</li>
@@ -252,7 +252,7 @@
 
     <!-- Script -->
     <!-- Script -->
-    <script>
+    <!-- <script>
         function showModal(jobTitle) {
             document.getElementById('jobTitle').innerText = 'Apply for ' + jobTitle;
             document.getElementById('applicationModal').classList.remove('hidden');
@@ -300,7 +300,80 @@
 
             window.location.href = mailtoUrl;
         }
-    </script>
+    </script> -->
+<!-- Updated JavaScript -->
+<script>
+    // Show the application modal with the selected job title
+    function showModal(jobTitle) {
+        document.getElementById('jobTitle').innerText = 'Apply for ' + jobTitle;
+        document.getElementById('applicationModal').classList.remove('hidden');
+    }
+
+    // Hide the application modal
+    function hideModal() {
+        document.getElementById('applicationModal').classList.add('hidden');
+    }
+
+    // Show the full job description in the read more modal
+    function showReadMore(job) {
+        const jobDescriptions = {
+            software: "Full job details for Software Engineer, including additional requirements and responsibilities...",
+            ux: "Full job details for UI/UX Designer, including additional design tasks and expectations..."
+        };
+        document.getElementById('readMoreTitle').innerText = 'Full Details';
+        document.getElementById('readMoreDescription').innerText = jobDescriptions[job];
+        document.getElementById('readMoreModal').classList.remove('hidden');
+    }
+
+    // Hide the read more modal
+    function hideReadMore() {
+        document.getElementById('readMoreModal').classList.add('hidden');
+    }
+
+    // Send application details on WhatsApp
+    function sendOnWhatsApp() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const jobTitle = document.getElementById('jobTitle').innerText;
+
+        if (!name || !email) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const message = `Hello, I am ${name}. I am interested in applying for the position of ${jobTitle}.\n\nHere is my email: ${email}`;
+        const whatsappUrl = `https://wa.me/447442349889?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Send application details via email
+    function sendOnEmail() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const jobTitle = document.getElementById('jobTitle').innerText;
+
+        if (!name || !email) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const subject = `Application for ${jobTitle}`;
+        const body = `Hello,\n\nI am ${name}, and I would like to apply for the ${jobTitle} position. Please find my details below:\n\nName: ${name}\nEmail: ${email}`;
+        const mailtoUrl = `mailto:info.goldfishsoftwarelabs@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        if (isMobileDevice()) {
+            window.location.href = mailtoUrl; // Opens default mail app on mobile
+        } else {
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=info.goldfishsoftwarelabs@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank"); // Opens Gmail in a new tab on PC
+        }
+    }
+
+    // Detect if the user is on a mobile device
+    function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+</script>
 
     <!-- Mobile Menu Script -->
     <script>

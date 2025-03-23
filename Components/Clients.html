@@ -33,7 +33,7 @@
     <meta name="twitter:site" content="@yourTwitterHandle">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://yourwebsite.com/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="log.ico">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -109,7 +109,7 @@
     <!-- Hero Section -->
     <section
         class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
-        style="background-image: url('banner-image.jpg');">
+        style="background-image: url('clients.jpeg');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 max-w-lg">
             <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
@@ -145,40 +145,64 @@
         </div>
     </section>
 
-    <!-- What Our Clients Say (Slideshow) -->
-    <section class="bg-white py-12 px-6">
-        <div class="container mx-auto text-center">
-            <h3 class="text-2xl font-bold mb-6">What Our Clients Say</h3>
-            <div class="overflow-hidden relative max-w-3xl mx-auto">
-                <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out">
-                    <div class="grid md:grid-cols-2 gap-6 w-full flex-shrink-0">
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                            <p class="text-gray-600">"Goldfish Software Labs transformed our startup with their expert
-                                development and growth strategies!"</p>
-                            <h4 class="mt-4 font-bold">- John Doe, CEO of StartupX</h4>
-                        </div>
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                            <p class="text-gray-600">"Their user research and design expertise made our product more
-                                user-friendly and engaging."</p>
-                            <h4 class="mt-4 font-bold">- Jane Smith, Product Manager</h4>
-                        </div>
+<!-- What Our Clients Say (Slideshow) -->
+<section class="bg-white py-12 px-6">
+    <div class="container mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-8">What Our Clients Say</h3>
+        <div class="overflow-hidden relative max-w-6xl mx-auto">
+            <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out">
+                <!-- Slide 1 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full flex-shrink-0">
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Goldfish Software Labs transformed our startup with their expert development and growth strategies!"</p>
+                        <h4 class="mt-4 font-bold">- John Doe, CEO of StartupX</h4>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6 w-full flex-shrink-0">
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                            <p class="text-gray-600">"Their team delivered beyond our expectations. Highly recommended!"
-                            </p>
-                            <h4 class="mt-4 font-bold">- Michael Brown, CEO of FinTech</h4>
-                        </div>
-                        <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                            <p class="text-gray-600">"Professional, responsive, and great results. Best decision we
-                                made!"</p>
-                            <h4 class="mt-4 font-bold">- Emily White, COO of HealthPlus</h4>
-                        </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Their user research and design expertise made our product more user-friendly and engaging."</p>
+                        <h4 class="mt-4 font-bold">- Jane Smith, Product Manager</h4>
+                    </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Their team delivered beyond our expectations. Highly recommended!"</p>
+                        <h4 class="mt-4 font-bold">- Michael Brown, CEO of FinTech</h4>
+                    </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Professional, responsive, and great results. Best decision we made!"</p>
+                        <h4 class="mt-4 font-bold">- Emily White, COO of HealthPlus</h4>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full flex-shrink-0">
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"The Goldfish team showed an impressive commitment to our project and delivered high-quality results!"</p>
+                        <h4 class="mt-4 font-bold">- Alice Green, CTO of EcoTech</h4>
+                    </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Their innovative approach helped us scale our business faster than we imagined."</p>
+                        <h4 class="mt-4 font-bold">- Robert Carter, Marketing Director</h4>
+                    </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"We were impressed by their problem-solving skills and technical expertise."</p>
+                        <h4 class="mt-4 font-bold">- Sarah Johnson, CEO of Tech Innovators</h4>
+                    </div>
+                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+                        <p class="text-gray-600">"Their development team is top-notch, and they go above and beyond to ensure client satisfaction."</p>
+                        <h4 class="mt-4 font-bold">- David Lee, COO of SaaS Solutions</h4>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Navigation Buttons -->
+        <div class="mt-8 flex justify-center space-x-4">
+            <button id="prev-btn" class="text-gray-700 hover:text-purple-700">
+                <i class="fas fa-chevron-left text-2xl"></i>
+            </button>
+            <button id="next-btn" class="text-gray-700 hover:text-purple-700">
+                <i class="fas fa-chevron-right text-2xl"></i>
+            </button>
+        </div>
+    </div>
+</section>
 
     <!-- Why Us (No Changes) -->
     <section class="container mx-auto py-12 px-6 text-center">
