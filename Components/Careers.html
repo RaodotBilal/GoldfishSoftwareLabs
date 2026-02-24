@@ -1,396 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- SEO Meta Tags -->
     <title>Careers - Goldfish Software Labs</title>
-    <meta name="description" content="Join Goldfish Software Labs! Explore exciting career opportunities in software development, IT solutions, and innovation.">
-    <meta name="keywords" content="careers, jobs, software development, IT jobs, Goldfish Software Labs">
-    <meta name="author" content="Goldfish Software Labs">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourwebsite.com/careers">
-
-    <!-- Open Graph (OG) Meta Tags for Social Sharing -->
-    <meta property="og:title" content="Careers - Goldfish Software Labs">
-    <meta property="og:description" content="Join Goldfish Software Labs! Explore exciting career opportunities in software development, IT solutions, and innovation.">
-    <meta property="og:image" content="https://yourwebsite.com/assets/careers-preview.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/careers">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Careers - Goldfish Software Labs">
-    <meta name="twitter:description" content="Join Goldfish Software Labs! Explore exciting career opportunities in software development, IT solutions, and innovation.">
-    <meta name="twitter:image" content="https://yourwebsite.com/assets/careers-preview.jpg">
-    <meta name="twitter:site" content="@yourTwitterHandle">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="log.ico">
-
-    <!-- Tailwind CSS -->
+    
+    <!-- Consistent Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premiumBlue: '#0F172A',
+                        accentPurple: '#6D28D9',
+                        goldAccent: '#F59E0B',
+                        darkBase: '#0B1120'
+                    },
+                    backgroundImage: {
+                        'premium-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+                        'gold-gradient': 'linear-gradient(90deg, #F59E0B 0%, #FCD34D 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* Gradient Button */
-        .gradient-btn {
-            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-            padding: 10px 16px;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            display: inline-block;
-            text-align: center;
+        .job-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Mobile Sidebar */
-        .sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .sidebar.open {
-            transform: translateX(0);
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            width: 4rem;
+            height: 2px;
+            background: rgba(109, 40, 217, 0.3);
         }
     </style>
 </head>
 
-
-<body class="bg-gray-100 text-gray-900">
-
+<body class="bg-premiumBlue text-gray-100">
     <!-- Header -->
-    <header class="bg-white shadow-md fixed top-0 w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="image.jpg" alt="Logo" class="w-12 h-12 rounded-full object-contain">
-                <a href="../index.html" class="text-xl font-bold text-gray-900">Goldfish Software Labs</a>
+    <header class="nav-blur fixed top-0 w-full z-50 border-b border-white/10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-accentPurple">
+                <a href="../index.html" class="text-xl font-bold bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                    Goldfish Software Labs
+                </a>
             </div>
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-                <a href="About.html" class="text-gray-600 hover:text-purple-600">About</a>
-                <a href="Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-                <a href="Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
-                <!-- <a href="Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a> -->
-                <a href="Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-                <a href="" class="gradient-btn px-4 py-2 rounded-lg">Get Started</a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Home
+                </a>
+                <a href="../Components/Services.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Services
+                </a>
+                <a href="../Components/Clients.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Clients
+                </a>
+                <a href="../Components/About.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    About
+                </a>
+                <a href="../Components/Contacts.html" 
+                   class="gold-hover bg-accentPurple text-white px-6 py-2 rounded-full hover:shadow-xl transition-all">
+                    Get Started
+                </a>
             </nav>
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Sidebar Menu (Mobile) -->
-    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 z-50">
-        <button id="close-menu" class="text-gray-600 p-4">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        <nav class="flex flex-col space-y-4">
-            <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-            <a href="Components/About.html" class="text-gray-600 hover:text-purple-600">About</a>
-            <a href="Components/Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-            <a href="Components/Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
-            <!-- <a href="Components/Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a> -->
-            <a href="Components/Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-            <a href="#GetStarted" class="gradient-btn">Get Started</a>
-        </nav>
-    </div>
+    <!-- Main Content -->
+    <section class="container mx-auto px-4 pt-32 pb-12">
+        <!-- Current Openings -->
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                    Current Openings
+                </span>
+            </h2>
 
-    <!-- Hero Section -->
-    <section
-        class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
-        style="background-image: url('career.jpeg');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 max-w-lg">
-            <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
-            <p class="mt-2 text-lg sm:text-md">We Turn Your Vision into a Reality!</p>
-            <a href="#GetStarted" class="gradient-btn mt-4 inline-block">Get Started</a>
-        </div>
-    </section>
-
-
-    <!-- Hero Section -->
-    <!-- <section class="bg-gray-700 text-white text-center py-16">
-        <h2 class="text-4xl font-bold">Join Our Team</h2>
-        <p class="mt-3 text-lg max-w-2xl mx-auto">We are looking for passionate individuals to help shape the future of software innovation.</p>
-    </section> -->
-    <!-- Why Work With Us -->
-    <section class="container mx-auto py-12 px-6 text-center">
-        <h3 class="text-2xl font-bold mb-6">Why Work With Us?</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-users text-blue-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Collaborative Culture</h4>
-                <p class="mt-2 text-gray-600">Work in a team-oriented environment that values innovation and creativity.
-                </p>
-            </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-laptop-code text-green-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Cutting-Edge Technology</h4>
-                <p class="mt-2 text-gray-600">Develop innovative software solutions using the latest technologies.</p>
-            </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-chart-line text-yellow-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Growth Opportunities</h4>
-                <p class="mt-2 text-gray-600">Advance your career with mentorship, training, and leadership
-                    opportunities.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Job Openings -->
-    <section class="bg-white py-12 px-6">
-        <div class="container mx-auto text-center">
-            <h3 class="text-2xl font-bold mb-6">Current Job Openings</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Job 1 -->
-                <div class="p-6 bg-gray-100 rounded-lg shadow-md text-left relative">
-                    <h4 class="font-bold text-lg">Software Engineer</h4>
-                    <p class="text-gray-600 mt-2">We are looking for a skilled developer with experience in web and
-                        mobile applications.</p>
-                    <ul class="mt-2 text-gray-600 list-disc pl-5">
-                        <li>Experience with JavaScript, React, and Node.js</li>
-                        <li>Strong problem-solving skills</li>
-                        <li>Remote or on-site available</li>
-                    </ul>
-                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                        onclick="showModal('Software Engineer')">Apply Now</button>
-                    <button class="absolute top-4 right-4 text-sm text-blue-600 hover:underline"
-                        onclick="showReadMore('software')">Read More</button>
+            <!-- Job Listing -->
+            <div class="job-card p-8 rounded-2xl mb-8">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Senior Software Engineer</h3>
+                        <div class="flex items-center space-x-4 text-gray-400">
+                            <span><i class="fas fa-map-marker-alt mr-2"></i>Remote</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-clock mr-2"></i>Full-time</span>
+                        </div>
+                    </div>
                 </div>
+                
+                <hr class="my-6 border-gray-700">
 
-                <!-- Job 2 -->
-                <div class="p-6 bg-gray-100 rounded-lg shadow-md text-left relative">
-                    <h4 class="font-bold text-lg">UI/UX Designer</h4>
-                    <p class="text-gray-600 mt-2">Seeking a creative designer to craft beautiful user experiences for our Apps and Websites.</p>
-                    <ul class="mt-2 text-gray-600 list-disc pl-5">
-                        <li>Proficiency in Figma, Adobe XD</li>
-                        <li>Strong understanding of UX principles</li>
-                        <li>Experience in mobile and web design</li>
-                    </ul>
-                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                        onclick="showModal('UI/UX Designer')">Apply Now</button>
-                    <button class="absolute top-4 right-4 text-sm text-blue-600 hover:underline"
-                        onclick="showReadMore('ux')">Read More</button>
+                <!-- Apply Now Section -->
+                <div class="text-center">
+                    <button class="bg-accentPurple text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition">
+                        Apply Now
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+    <div class="py-16">
+        <h2 class="text-4xl font-bold mb-12 text-center">
+            <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                Our Values
+            </span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Value 1 -->
+            <div class="value-card p-6 rounded-2xl bg-darkBase border border-accentPurple/20">
+                <div class="value-icon w-14 h-14 rounded-xl bg-accentPurple/10 flex items-center justify-center mb-4 transition-transform">
+                    <i class="fas fa-hand-holding-heart text-goldAccent text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Create Meaningful Change</h3>
+                <p class="text-gray-400">Driven by the desire to make a positive impact</p>
+            </div>
 
-    <!-- Modal for Applying -->
-    <div id="applicationModal"
-        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
-        <div class="bg-white w-96 p-6 rounded-lg shadow-lg relative">
-            <h3 id="jobTitle" class="text-xl font-semibold mb-2">Apply for Job</h3>
-            <form>
-                <label class="block text-gray-700">Name:</label>
-                <input type="text" id="name" required class="w-full p-2 mb-4 border rounded" placeholder="Your Name">
+            <!-- Add other values following same pattern -->
+            <!-- Value 2 -->
+            <div class="value-card p-6 rounded-2xl bg-darkBase border border-accentPurple/20">
+                <div class="value-icon w-14 h-14 rounded-xl bg-accentPurple/10 flex items-center justify-center mb-4 transition-transform">
+                    <i class="fas fa-globe text-goldAccent text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Global Perspective</h3>
+                <p class="text-gray-400">Think globally, act locally</p>
+            </div>
 
-                <label class="block text-gray-700">Email:</label>
-                <input type="email" id="email" required class="w-full p-2 mb-4 border rounded" placeholder="Your Email">
-
-                <label class="block text-gray-700">Upload CV:</label>
-                <input type="file" id="cv" required class="w-full mb-4">
-
-                <button type="button" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 w-full mb-4"
-                    onclick="sendOnWhatsApp()">Send on WhatsApp</button>
-                <button type="button"
-                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 w-full mb-4"
-                    onclick="sendOnEmail()">Send on Email</button>
-            </form>
-            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="hideModal()">X</button>
+            <!-- Continue with remaining values... -->
         </div>
     </div>
 
-    <!-- Modal for "Read More" -->
-    <div id="readMoreModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
-        <div class="bg-white w-96 p-6 rounded-lg shadow-lg">
-            <h3 id="readMoreTitle" class="text-xl font-semibold mb-2">Job Title</h3>
-            <p id="readMoreDescription" class="text-gray-600 mb-6">Detailed job description goes here...</p>
-            <button class="bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded-lg w-full"
-                onclick="hideReadMore()">Close</button>
+    <!-- Benefits Section -->
+    <div class="py-16">
+        <h2 class="text-4xl font-bold mb-12 text-center">
+            <span class="bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                Your Benefits
+            </span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Benefit 1 -->
+            <div class="p-6 rounded-2xl bg-darkBase border border-accentPurple/20">
+                <div class="w-14 h-14 rounded-xl bg-accentPurple/10 flex items-center justify-center mb-4">
+                    <i class="fas fa-heartbeat text-goldAccent text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Health & Wellness</h3>
+                <p class="text-gray-400">Comprehensive medical, dental, and vision coverage</p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="p-6 rounded-2xl bg-darkBase border border-accentPurple/20">
+                <div class="w-14 h-14 rounded-xl bg-accentPurple/10 flex items-center justify-center mb-4">
+                    <i class="fas fa-graduation-cap text-goldAccent text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Professional Growth</h3>
+                <p class="text-gray-400">Workshops, conferences, and learning opportunities</p>
+            </div>
+
+            <!-- Continue with remaining benefits... -->
         </div>
     </div>
 
+    <!-- Hiring Process -->
+    <div class="py-16">
+        <h2 class="text-4xl font-bold mb-12 text-center">
+            <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                Our Hiring Process
+            </span>
+        </h2>
 
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+            <!-- Step 1 -->
+            <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-accentPurple/20 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-goldAccent">1</span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-xl font-semibold">Initial Application Review</h3>
+                    <p class="text-gray-400">48-72 hour response time</p>
+                </div>
+            </div>
 
+            <!-- Connector -->
+            <div class="h-1 w-16 process-connector hidden md:block"></div>
 
-    <!-- Application Process -->
-    <section class="container mx-auto py-12 px-6 text-center">
-        <h3 class="text-2xl font-bold mb-6">Our Hiring Process</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-file-alt text-blue-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">1. Apply</h4>
-                <p class="mt-2 text-gray-600">Submit your resume and cover letter.</p>
+            <!-- Step 2 -->
+            <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-accentPurple/20 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-goldAccent">2</span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-xl font-semibold">Technical Interview</h3>
+                    <p class="text-gray-400">Skills assessment & coding challenge</p>
+                </div>
             </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-comments text-green-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">2. Interview</h4>
-                <p class="mt-2 text-gray-600">Participate in technical and behavioral interviews.</p>
+            <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-accentPurple/20 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-goldAccent">3</span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-xl font-semibold">Technical Interview</h3>
+                    <p class="text-gray-400">Skills assessment & coding challenge</p>
+                </div>
             </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-handshake text-yellow-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">3. Get Hired</h4>
-                <p class="mt-2 text-gray-600">Join our team and start your journey with us.</p>
+            <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-accentPurple/20 flex items-center justify-center">
+                    <span class="text-2xl font-bold text-goldAccent">4</span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-xl font-semibold">Technical Interview</h3>
+                    <p class="text-gray-400">Skills assessment & coding challenge</p>
+                </div>
             </div>
+            
+
+            <!-- Add more steps as needed -->
         </div>
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-        <p>&copy; 2025 Goldfish Software Labs. All rights reserved.</p>
-    </footer>
-
-    <!-- Script -->
-    <!-- Script -->
-    <!-- <script>
-        function showModal(jobTitle) {
-            document.getElementById('jobTitle').innerText = 'Apply for ' + jobTitle;
-            document.getElementById('applicationModal').classList.remove('hidden');
-        }
-
-        function hideModal() {
-            document.getElementById('applicationModal').classList.add('hidden');
-        }
-
-        function showReadMore(job) {
-            const jobDescriptions = {
-                software: "Full job details for Software Engineer, including additional requirements and responsibilities...",
-                ux: "Full job details for UI/UX Designer, including additional design tasks and expectations..."
-            };
-            document.getElementById('readMoreTitle').innerText = 'Full Details';
-            document.getElementById('readMoreDescription').innerText = jobDescriptions[job];
-            document.getElementById('readMoreModal').classList.remove('hidden');
-        }
-
-        function hideReadMore() {
-            document.getElementById('readMoreModal').classList.add('hidden');
-        }
-
-        function sendOnWhatsApp() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const jobTitle = document.getElementById('jobTitle').innerText;
-
-            const message = `Hello, I am ${name}. I am interested in applying for the position of ${jobTitle}.\n\nHere is my email: ${email}`;
-
-            const whatsappUrl = `https://wa.me/PHONE_NUMBER?text=${encodeURIComponent(message)}`;
-
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function sendOnEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const jobTitle = document.getElementById('jobTitle').innerText;
-
-            const subject = `Application for ${jobTitle}`;
-            const body = `Hello,\n\nI am ${name}, and I would like to apply for the ${jobTitle} position. Please find my details below:\n\nName: ${name}\nEmail: ${email}`;
-
-            const mailtoUrl = `mailto:example@goldfishlabs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            window.location.href = mailtoUrl;
-        }
-    </script> -->
-<!-- Updated JavaScript -->
-<script>
-    // Show the application modal with the selected job title
-    function showModal(jobTitle) {
-        document.getElementById('jobTitle').innerText = 'Apply for ' + jobTitle;
-        document.getElementById('applicationModal').classList.remove('hidden');
-    }
-
-    // Hide the application modal
-    function hideModal() {
-        document.getElementById('applicationModal').classList.add('hidden');
-    }
-
-    // Show the full job description in the read more modal
-    function showReadMore(job) {
-        const jobDescriptions = {
-            software: "Full job details for Software Engineer, including additional requirements and responsibilities...",
-            ux: "Full job details for UI/UX Designer, including additional design tasks and expectations..."
-        };
-        document.getElementById('readMoreTitle').innerText = 'Full Details';
-        document.getElementById('readMoreDescription').innerText = jobDescriptions[job];
-        document.getElementById('readMoreModal').classList.remove('hidden');
-    }
-
-    // Hide the read more modal
-    function hideReadMore() {
-        document.getElementById('readMoreModal').classList.add('hidden');
-    }
-
-    // Send application details on WhatsApp
-    function sendOnWhatsApp() {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const jobTitle = document.getElementById('jobTitle').innerText;
-
-        if (!name || !email) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-
-        const message = `Hello, I am ${name}. I am interested in applying for the position of ${jobTitle}.\n\nHere is my email: ${email}`;
-        const whatsappUrl = `https://wa.me/447442349889?text=${encodeURIComponent(message)}`;
-
-        window.open(whatsappUrl, '_blank');
-    }
-
-    // Send application details via email
-    function sendOnEmail() {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const jobTitle = document.getElementById('jobTitle').innerText;
-
-        if (!name || !email) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-
-        const subject = `Application for ${jobTitle}`;
-        const body = `Hello,\n\nI am ${name}, and I would like to apply for the ${jobTitle} position. Please find my details below:\n\nName: ${name}\nEmail: ${email}`;
-        const mailtoUrl = `mailto:info.goldfishsoftwarelabs@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        if (isMobileDevice()) {
-            window.location.href = mailtoUrl; // Opens default mail app on mobile
-        } else {
-            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=info.goldfishsoftwarelabs@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank"); // Opens Gmail in a new tab on PC
-        }
-    }
-
-    // Detect if the user is on a mobile device
-    function isMobileDevice() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-</script>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const sidebar = document.getElementById("sidebar");
-        const closeMenu = document.getElementById("close-menu");
-
-        menuToggle.addEventListener("click", () => {
-            sidebar.classList.add("open");
-        });
-
-        closeMenu.addEventListener("click", () => {
-            sidebar.classList.remove("open");
-        });
-    </script>
-
-
+    </div>
+</section>
 </body>
-
 </html>

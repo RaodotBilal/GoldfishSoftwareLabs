@@ -1,254 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- SEO Meta Tags -->
     <title>About Us - Goldfish Software Labs</title>
-    <meta name="description"
-        content="Goldfish Software Labs is a leading software development company delivering cutting-edge solutions to businesses worldwide.">
-    <meta name="keywords"
-        content="software development, IT solutions, web development, mobile apps, Goldfish Software Labs">
-    <meta name="author" content="Goldfish Software Labs">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourwebsite.com/about">
-
-    <!-- Open Graph (OG) Meta Tags for Social Sharing -->
-    <meta property="og:title" content="About Us - Goldfish Software Labs">
-    <meta property="og:description"
-        content="Goldfish Software Labs is a leading software development company delivering cutting-edge solutions to businesses worldwide.">
-    <meta property="og:image" content="https://yourwebsite.com/assets/about-preview.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/about">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Us - Goldfish Software Labs">
-    <meta name="twitter:description"
-        content="Goldfish Software Labs is a leading software development company delivering cutting-edge solutions to businesses worldwide.">
-    <meta name="twitter:image" content="https://yourwebsite.com/assets/about-preview.jpg">
-    <meta name="twitter:site" content="@yourTwitterHandle">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="log.ico">
-
-    <!-- Tailwind CSS -->
+    
+    <!-- Consistent Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premiumBlue: '#0F172A',
+                        accentPurple: '#6D28D9',
+                        goldAccent: '#F59E0B',
+                        darkBase: '#0B1120'
+                    },
+                    backgroundImage: {
+                        'premium-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+                        'gold-gradient': 'linear-gradient(90deg, #F59E0B 0%, #FCD34D 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* Gradient Button */
-        .gradient-btn {
-            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-            padding: 10px 16px;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            display: inline-block;
-            text-align: center;
+        .timeline-dot {
+            @apply absolute w-4 h-4 rounded-full bg-accentPurple border-2 border-goldAccent;
+            left: -2.1rem;
+            top: 0.35rem;
         }
 
-        /* Mobile Sidebar */
-        .sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+        .team-card:hover .team-image {
+            transform: scale(1.05);
         }
 
-        .sidebar.open {
-            transform: translateX(0);
+        .value-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .value-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 
-
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Navbar -->
-
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed top-0 w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="image.jpg" alt="Logo" class="w-12 h-12 rounded-full object-contain">
-                <a href="../index.html" class="text-xl font-bold text-gray-900">Goldfish Software Labs</a>
+<body class="bg-premiumBlue text-gray-100">
+    <!-- Premium Header -->
+    <header class="backdrop-blur-md bg-premiumBlue/90 fixed top-0 w-full z-50 border-b border-white/10">
+        <!-- Same header as services page -->
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-accentPurple">
+                <a href="../index.html" class="text-xl font-bold bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                    Goldfish Software Labs
+                </a>
             </div>
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-                <a href="Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-                <a href="Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
-                <a href="Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
-                <a href="Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-                <a href="" class="gradient-btn px-4 py-2 rounded-lg">Get Started</a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Home
+                </a>
+                <a href="../Components/Services.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Services
+                </a>
+                <a href="../Components/Clients.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Clients
+                </a>
+                <a href="../Components/Careers.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Careers
+                </a>
+                <a href="../Components/Contacts.html" 
+                   class="gold-hover bg-accentPurple text-white px-6 py-2 rounded-full hover:shadow-xl transition-all">
+                    Get Started
+                </a>
             </nav>
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Sidebar Menu (Mobile) -->
-    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 z-50">
-        <button id="close-menu" class="text-gray-600 p-4">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        <nav class="flex flex-col space-y-4">
-            <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-            <a href="Components/Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-            <a href="Components/Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a>
-            <a href="Components/Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
-            <a href="Components/Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-            <a href="#GetStarted" class="gradient-btn">Get Started</a>
-        </nav>
-    </div>
+    <!-- Animated Hero Section -->
+    <section class="relative mt-20 min-h-[70vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-[url('./Components/2.jpg')] bg-cover bg-center opacity-20 animate-fade-in"></div>
+        <div class="relative z-10 container mx-auto px-4 py-24 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-goldAccent to-white bg-clip-text text-transparent">
+                    Crafting Digital Excellence
+                </span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Pioneering software solutions since 2015 through innovation and client-centric development
+            </p>
+        </div>
+        
+        <!-- Floating Animation Elements -->
+        <div class="absolute bottom-20 left-20 w-8 h-8 rounded-full bg-accentPurple/30 animate-float animation-delay-100"></div>
+        <div class="absolute top-20 right-40 w-12 h-12 rounded-full bg-goldAccent/20 animate-float animation-delay-300"></div>
+    </section>
 
-    <!-- Hero Section -->
-    <section
-        class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
-        style="background-image: url('2.jpg');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 max-w-lg">
-            <h1 class="text-4xl sm:text-3xl font-bold">About Goldfish Software Labs</h1>
-            <p class="mt-2 text-lg sm:text-md">We Turn Your Vision into a Reality! By Building innovative software
-                solutions that drive success.</p>
-            <a href="#GetStarted" class="gradient-btn mt-4 inline-block">Get Started</a>
+    <!-- Story Timeline Section -->
+    <section class="py-20 bg-darkBase">
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center">
+                    <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                        Our Journey
+                    </span>
+                </h2>
+
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-16 mb-12 border-l-2 border-accentPurple/30">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold mb-4">2022 - Humble Beginnings</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Founded in a small office with just 3 developers, driven by passion for innovative solutions
+                    </p>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-16 mb-12 border-l-2 border-accentPurple/30">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold mb-4">2022 - First Major Client</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Secured partnership with Tech Innovators Inc., marking our entry into enterprise solutions
+                    </p>
+                </div>
+                <div class="relative pl-16 mb-12 border-l-2 border-accentPurple/30">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold mb-4">2023 - Team Building</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Secured partnership with Tech Innovators Inc., marking our entry into enterprise solutions
+                    </p>
+                </div>
+                <div class="relative pl-16 mb-12 border-l-2 border-accentPurple/30">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold mb-4">2024 - Major Restructre</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Secured partnership with Tech Innovators Inc., marking our entry into enterprise solutions
+                    </p>
+                </div>
+                <div class="relative pl-16 mb-12 border-l-2 border-accentPurple/30">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold mb-4">2025 - Added New Busines Domains</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Secured partnership with Tech Innovators Inc., marking our entry into enterprise solutions
+                    </p>
+                </div>
+
+                <!-- Add more timeline items -->
+
+            </div>
         </div>
     </section>
 
+    <!-- Core Values - Animated Grid -->
+    <section class="py-20 bg-premiumBlue">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                    Our Pillars of Excellence
+                </span>
+            </h2>
 
-  
-    <section class="container mx-auto py-8 px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
-            <!-- Our Mission & Vision -->
-            <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg transition-transform hover:scale-105">
-                <h3 class="text-2xl font-bold mb-4 text-center">Our Mission & Vision</h3>
-                                <p class="text-gray-700 leading-relaxed text-lg">At Goldfish Software Labs, our mission is to develop world-class software solutions that empower businesses to achieve their goals efficiently. We envision a future where technology bridges the gap between challenges and solutions seamlessly.</p>
-            </div>
-    
-            <!-- Our Story -->
-            <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg transition-transform hover:scale-105">
-                <h3 class="text-2xl font-bold mb-4 text-center">Our Story</h3>
-                <p class="text-gray-700 leading-relaxed text-lg">Founded in 2015, Goldfish Software Labs started as a small group of passionate developers with a vision to revolutionize software development. Over the years, we've grown into a leading tech firm, serving clients globally with cutting-edge solutions.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Innovation Card -->
+                <div class="value-card p-8 rounded-2xl bg-darkBase border border-accentPurple/30">
+                    <div class="w-14 h-14 rounded-xl bg-accentPurple/10 mb-6 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-2xl text-goldAccent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Innovation First</h3>
+                    <p class="text-gray-400">
+                        Continuously pushing boundaries through R&D and emerging technologies
+                    </p>
+                </div>
+
+                <!-- Client Focus Card -->
+                <div class="value-card p-8 rounded-2xl bg-darkBase border border-accentPurple/30">
+                    <div class="w-14 h-14 rounded-xl bg-accentPurple/10 mb-6 flex items-center justify-center">
+                        <i class="fas fa-handshake text-2xl text-goldAccent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Client Partnership</h3>
+                    <p class="text-gray-400">
+                        Building long-term relationships through transparent communication
+                    </p>
+                </div>
+
+                <!-- Add other values -->
+
             </div>
         </div>
     </section>
- 
-    <!-- Core Values -->
-    <section class="container mx-auto py-8 px-6 text-center">
-        <h3 class="text-3xl font-extrabold text-gray-900 mb-6">Our Core Values</h3>
 
-        <div class="relative overflow-hidden">
-            <div id="coreValuesSlider" class="flex transition-transform duration-500 ease-in-out">
-                <!-- Slide 1 -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 shrink-0 w-full">
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-lightbulb text-yellow-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Innovation</h4>
-                        <p class="mt-2 text-gray-600">We embrace new ideas and push the boundaries of technology.</p>
+    <!-- Leadership Section -->
+    <section class="py-20 bg-darkBase">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center">
+                <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                    Leadership Team
+                </span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- CEO Card -->
+                <div class="team-card group relative overflow-hidden rounded-2xl bg-premiumBlue border border-accentPurple/30">
+                    <div class="overflow-hidden">
+                        <img src="../Components/CEO.jpg" alt="CEO" 
+                             class="team-image w-full h-80 object-cover transition-transform duration-500">
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-users text-blue-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Collaboration</h4>
-                        <p class="mt-2 text-gray-600">Teamwork drives our success and enhances creativity.</p>
-                    </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-handshake text-green-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Integrity</h4>
-                        <p class="mt-2 text-gray-600">We prioritize honesty, transparency, and trust in every
-                            interaction.</p>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Rao Bilal Ahmad</h4>
+                        <p class="text-gray-400 mb-4">Co-Founder & CEO</p> <br>
+                        <p class="text-gray-400 mb-4">With a strong vision and business acumen, Bilal leads the company's strategic direction, ensuring innovation and operational excellence at every stage.</p>
+                        <div class="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="https://www.linkedin.com/in/rao-bilal-ahmed-32581121b/" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:info.raobilal@gmail.com" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <!-- Slide 2 -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 shrink-0 w-full">
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-chart-line text-purple-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Excellence</h4>
-                        <p class="mt-2 text-gray-600">We strive for the highest standards in everything we do.</p>
+                <div class="team-card group relative overflow-hidden rounded-2xl bg-premiumBlue border border-accentPurple/30">
+                    <div class="overflow-hidden">
+                        <img src="../Components/zoni.jpg" alt="CEO" 
+                             class="team-image w-full h-80 object-cover transition-transform duration-500">
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-seedling text-green-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Sustainability</h4>
-                        <p class="mt-2 text-gray-600">We build solutions with a long-term positive impact on society.
-                        </p>
-                    </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md">
-                        <i class="fas fa-heart text-red-500 text-3xl"></i>
-                        <h4 class="mt-4 font-bold">Passion</h4>
-                        <p class="mt-2 text-gray-600">We are passionate about creating innovative and impactful
-                            solutions.</p>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">MWA</h4>
+                        <p class="text-gray-400 mb-4">Co-Founder & CTO</p> <br>
+                        <p class="text-gray-400 mb-4">Co-Founder & Chief Technology Officer (CTO)
+                            Waleed oversees the technology strategy, pushing boundaries of development to deliver cutting-edge solutions around the world.</p>
+                        <div class="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <div class="team-card group relative overflow-hidden rounded-2xl bg-premiumBlue border border-accentPurple/30">
+                    <div class="overflow-hidden">
+                        <img src="../Components/Hijab.jpg" alt="CEO" 
+                             class="team-image w-full h-80 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Hijab Zehra Zaidi</h4>
+                        <p class="text-gray-400 mb-4">Busines Analyst</p>
+                        <div class="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card group relative overflow-hidden rounded-2xl bg-premiumBlue border border-accentPurple/30">
+                    <div class="overflow-hidden">
+                        <img src="../Components/rimsha.jpg" alt="CEO" 
+                             class="team-image w-full h-80 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Rimsha Sajid</h4>
+                        <p class="text-gray-400 mb-4">Market Analyst</p>
+                        <div class="flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-goldAccent hover:text-accentPurple">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Add other team members -->
+
             </div>
         </div>
     </section>
 
-
-    <!-- Meet Our Team -->
-<section class="bg-gray py-8 px-6 text-center">
-    <h3 class="text-2xl font-bold mb-6">Meet Our Leadership Team</h3>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-white  rounded-lg shadow-md">
-            <h4 class="mt-4 text-xl font-bold">Rao Bilal Ahmad</h4>
-            <p class="text-gray-600 mt-2">Co-Founder & Chief Executive Officer (CEO)</p>
-            <p class="text-gray-500 mt-2">With a strong vision and business acumen, Bilal leads the company's strategic direction, ensuring innovation and operational excellence at every stage.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-md">
-            <h4 class="mt-4 text-xl font-bold">Muhammad Waleed Ashraf</h4>
-            <p class="text-gray-600 mt-2">Co-Founder & Chief Technology Officer (CTO)</p>
-            <p class="text-gray-500 mt-2">Waleed oversees the technology strategy, pushing the boundaries of software development to deliver cutting-edge solutions for clients around the world.</p>
-        </div>
-         <div class="p-6 bg-white rounded-lg shadow-md">
-            <h4 class="mt-4 text-xl font-bold">Hijab Zehra Zaidi</h4>
-            <p class="text-gray-600 mt-2">Business Manager</p>
-            <p class="text-gray-500 mt-2">Job Duties are coming soon</p>
-        </div>
-         <div class="p-6 bg-white rounded-lg shadow-md">
-            <h4 class="mt-4 text-xl font-bold">Rimsha Sajid</h4>
-            <p class="text-gray-600 mt-2">Market Analyst </p>
-            <p class="text-gray-500 mt-2">Job Duties are coming soon</p>
-        </div>
-    </div>
-</section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-        <p>&copy; 2025 Goldfish Software Labs. All rights reserved.</p>
-    </footer>
-
-    <!-- Mobile Menu Script -->
     <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const sidebar = document.getElementById("sidebar");
-        const closeMenu = document.getElementById("close-menu");
+        // Scroll animation for value cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        menuToggle.addEventListener("click", () => {
-            sidebar.classList.add("open");
+        document.querySelectorAll('.value-card').forEach((card) => {
+            observer.observe(card);
         });
 
-        closeMenu.addEventListener("click", () => {
-            sidebar.classList.remove("open");
-        });
-    </script>
-
-    <!-- //core values -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const slider = document.getElementById("coreValuesSlider");
-            let index = 0;
-
-            function slide() {
-                index = (index + 1) % 2; // Only two slides
-                slider.style.transform = `translateX(-${index * 100}%)`;
-            }
-
-            setInterval(slide, 4000); // Change every 4 seconds
+        // Team card hover effect
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
         });
     </script>
 </body>
-
 </html>

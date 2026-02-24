@@ -1,272 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- SEO Meta Tags -->
     <title>Our Clients - Goldfish Software Labs</title>
-    <meta name="description"
-        content="Discover the businesses and enterprises that trust Goldfish Software Labs for their IT solutions and software development needs.">
-    <meta name="keywords"
-        content="clients, software solutions, IT partners, Goldfish Software Labs, business collaborations">
-    <meta name="author" content="Goldfish Software Labs">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourwebsite.com/our-clients">
-
-    <!-- Open Graph (OG) Meta Tags for Social Sharing -->
-    <meta property="og:title" content="Our Clients - Goldfish Software Labs">
-    <meta property="og:description"
-        content="Discover the businesses and enterprises that trust Goldfish Software Labs for their IT solutions and software development needs.">
-    <meta property="og:image" content="https://yourwebsite.com/assets/clients-preview.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/our-clients">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Our Clients - Goldfish Software Labs">
-    <meta name="twitter:description"
-        content="Discover the businesses and enterprises that trust Goldfish Software Labs for their IT solutions and software development needs.">
-    <meta name="twitter:image" content="https://yourwebsite.com/assets/clients-preview.jpg">
-    <meta name="twitter:site" content="@yourTwitterHandle">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="log.ico">
-
-    <!-- Tailwind CSS -->
+    
+    <!-- Consistent Styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        premiumBlue: '#0F172A',
+                        accentPurple: '#6D28D9',
+                        goldAccent: '#F59E0B',
+                        darkBase: '#0B1120'
+                    },
+                    backgroundImage: {
+                        'premium-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+                        'gold-gradient': 'linear-gradient(90deg, #F59E0B 0%, #FCD34D 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* Gradient Button */
-        .gradient-btn {
-            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-            padding: 10px 16px;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            display: inline-block;
-            text-align: center;
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
 
-        /* Mobile Sidebar */
-        .sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.05);
         }
 
-        .sidebar.open {
-            transform: translateX(0);
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .partner-badge {
+            background: linear-gradient(45deg, #6D28D9 0%, #F59E0B 100%);
         }
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed top-0 w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="image.jpg" alt="Logo" class="w-12 h-12 rounded-full object-contain">
-                <a href="../index.html" class="text-xl font-bold text-gray-900">Goldfish Software Labs</a>
+<body class="bg-premiumBlue text-gray-100">
+    <!-- Premium Header -->
+    <header class="backdrop-blur-md bg-premiumBlue/90 fixed top-0 w-full z-50 border-b border-white/10">
+        <!-- Same header as previous pages -->
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-accentPurple">
+                <a href="../index.html" class="text-xl font-bold bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                    Goldfish Software Labs
+                </a>
             </div>
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-                <a href="About.html" class="text-gray-600 hover:text-purple-600">About</a>
-                <a href="Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-                <!-- <a href="Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a> -->
-                <a href="Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
-                <a href="Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-                <a href="" class="gradient-btn px-4 py-2 rounded-lg">Get Started</a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="../Components/About.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    About
+                </a>
+                <a href="../Components/Services.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Services
+                </a>
+                <a href="../Components/Clients.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Clients
+                </a>
+                <a href="../Components/Careers.html" class="text-gray-300 hover:text-white transition-all font-medium">
+                    Careers
+                </a>
+                <a href="../Components/Contacts.html" 
+                   class="gold-hover bg-accentPurple text-white px-6 py-2 rounded-full hover:shadow-xl transition-all">
+                    Get Started
+                </a>
             </nav>
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Sidebar Menu (Mobile) -->
-    <div id="sidebar" class="sidebar fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 z-50">
-        <button id="close-menu" class="text-gray-600 p-4">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        <nav class="flex flex-col space-y-4">
-            <a href="../index.html" class="text-gray-600 hover:text-purple-600">Home</a>
-            <a href="Components/About.html" class="text-gray-600 hover:text-purple-600">About</a>
-            <a href="Components/Services.html" class="text-gray-600 hover:text-purple-600">Services</a>
-            <!-- <a href="Components/Clients.html" class="text-gray-600 hover:text-purple-600">Clients</a> -->
-            <a href="Components/Careers.html" class="text-gray-600 hover:text-purple-600">Careers</a>
-            <a href="Components/Contacts.html" class="text-gray-600 hover:text-purple-600">Contact</a>
-            <a href="#GetStarted" class="gradient-btn">Get Started</a>
-        </nav>
-    </div>
-
     <!-- Hero Section -->
-    <section
-        class="hero relative mt-16 bg-cover bg-center flex items-center justify-center h-[500px] sm:h-[400px] text-center px-6 text-white"
-        style="background-image: url('clients.jpeg');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 max-w-lg">
-            <h1 class="text-4xl sm:text-3xl font-bold">Building Software for Success</h1>
-            <p class="mt-2 text-lg sm:text-md">We Turn Your Vision into a Reality!</p>
-            <a href="#GetStarted" class="gradient-btn mt-4 inline-block">Get Started</a>
+    <section class="relative mt-20 min-h-[60vh] flex items-center">
+        <div class="absolute inset-0 bg-[url('./Components/clients.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div class="relative z-10 container mx-auto px-4 py-24 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-goldAccent to-white bg-clip-text text-transparent">
+                    Trusted By Innovators
+                </span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Collaborating with visionary companies to transform industries through technology
+            </p>
         </div>
     </section>
 
-    <!-- Hero Section
-    <section class="bg-gray-700 text-white text-center py-16">
-        <h2 class="text-4xl font-bold">Our Clients</h2>
-        <p class="mt-3 text-lg max-w-2xl mx-auto">We have worked with innovative startups and industry leaders to build great products.</p>
-    </section> -->
-
-    <!-- Our Clients (Slideshow) -->
-    <section class="container mx-auto py-12 px-6 text-center">
-        <h3 class="text-2xl font-bold mb-6">Our Trusted Clients</h3>
-        <div class="overflow-hidden relative max-w-4xl mx-auto">
-            <div id="client-slider" class="flex transition-transform duration-700 ease-in-out">
-                <div class="grid grid-cols-4 gap-6 w-full flex-shrink-0">
-                    <img src="client1.png" alt="Client 1" class="mx-auto w-32">
-                    <img src="client2.png" alt="Client 2" class="mx-auto w-32">
-                    <img src="client3.png" alt="Client 3" class="mx-auto w-32">
-                    <img src="client4.png" alt="Client 4" class="mx-auto w-32">
-                </div>
-                <div class="grid grid-cols-4 gap-6 w-full flex-shrink-0">
-                    <img src="client5.png" alt="Client 5" class="mx-auto w-32">
-                    <img src="client6.png" alt="Client 6" class="mx-auto w-32">
-                    <img src="client7.png" alt="Client 7" class="mx-auto w-32">
-                    <img src="client8.png" alt="Client 8" class="mx-auto w-32">
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- What Our Clients Say (Slideshow) -->
-<section class="bg-white py-12 px-6">
-    <div class="container mx-auto text-center">
-        <h3 class="text-3xl font-bold mb-8">What Our Clients Say</h3>
-        <div class="overflow-hidden relative max-w-6xl mx-auto">
-            <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out">
-                <!-- Slide 1 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full flex-shrink-0">
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Goldfish Software Labs transformed our startup with their expert development and growth strategies!"</p>
-                        <h4 class="mt-4 font-bold">- John Doe, CEO of StartupX</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Their user research and design expertise made our product more user-friendly and engaging."</p>
-                        <h4 class="mt-4 font-bold">- Jane Smith, Product Manager</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Their team delivered beyond our expectations. Highly recommended!"</p>
-                        <h4 class="mt-4 font-bold">- Michael Brown, CEO of FinTech</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Professional, responsive, and great results. Best decision we made!"</p>
-                        <h4 class="mt-4 font-bold">- Emily White, COO of HealthPlus</h4>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full flex-shrink-0">
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"The Goldfish team showed an impressive commitment to our project and delivered high-quality results!"</p>
-                        <h4 class="mt-4 font-bold">- Alice Green, CTO of EcoTech</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Their innovative approach helped us scale our business faster than we imagined."</p>
-                        <h4 class="mt-4 font-bold">- Robert Carter, Marketing Director</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"We were impressed by their problem-solving skills and technical expertise."</p>
-                        <h4 class="mt-4 font-bold">- Sarah Johnson, CEO of Tech Innovators</h4>
-                    </div>
-                    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
-                        <p class="text-gray-600">"Their development team is top-notch, and they go above and beyond to ensure client satisfaction."</p>
-                        <h4 class="mt-4 font-bold">- David Lee, COO of SaaS Solutions</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <div class="mt-8 flex justify-center space-x-4">
-            <button id="prev-btn" class="text-gray-700 hover:text-purple-700">
-                <i class="fas fa-chevron-left text-2xl"></i>
-            </button>
-            <button id="next-btn" class="text-gray-700 hover:text-purple-700">
-                <i class="fas fa-chevron-right text-2xl"></i>
-            </button>
-        </div>
-    </div>
-</section>
-
-    <!-- Why Us (No Changes) -->
-    <section class="container mx-auto py-12 px-6 text-center">
-        <h3 class="text-2xl font-bold mb-6">Why Choose Us?</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-lightbulb text-yellow-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Innovative Approach</h4>
-                <p class="mt-2 text-gray-600">We use cutting-edge technology and strategies to solve complex problems.
+    <!-- Client Showcase -->
+    <section class="py-20 bg-darkBase">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                        Our Partners
+                    </span>
+                </h2>
+                <p class="text-gray-400 max-w-xl mx-auto">
+                    We've helped these industry leaders achieve their digital transformation goals
                 </p>
             </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-user-check text-blue-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Client-Centric</h4>
-                <p class="mt-2 text-gray-600">Our solutions are tailored to meet the unique needs of each client.</p>
-            </div>
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <i class="fas fa-chart-line text-green-500 text-3xl"></i>
-                <h4 class="mt-4 font-bold">Proven Results</h4>
-                <p class="mt-2 text-gray-600">We have a track record of helping startups scale and succeed.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+                <!-- Client Logo 1 -->
+                <div class="p-6 flex items-center justify-center">
+                    <img src="/placeholders/client-1.svg" alt="Client 1" class="client-logo h-20 w-auto">
+                </div>
+                
+                <!-- Add more client logos -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
-        <p>&copy; 2025 Goldfish Software Labs. All rights reserved.</p>
-    </footer>
+    <!-- Success Stories -->
+    <section class="py-20 bg-premiumBlue">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-goldAccent to-accentPurple bg-clip-text text-transparent">
+                        Success Stories
+                    </span>
+                </h2>
+            </div>
 
-    <!-- JavaScript for Slideshow -->
-    <script>
-        function startSlideshow(sliderId, interval) {
-            const slider = document.getElementById(sliderId);
-            let index = 0;
-            const totalSlides = slider.children.length;
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="testimonial-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-accentPurple/10 flex items-center justify-center">
+                            <span class="text-2xl">🚀</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-semibold">Fintech Transformation</h3>
+                            <p class="text-gray-400">Financial Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        "Goldfish Labs revolutionized our mobile banking platform, increasing user engagement by 150%"
+                    </p>
+                    <div class="partner-badge px-4 py-2 rounded-full text-sm w-fit">Featured Case Study</div>
+                </div>
 
-            function slideNext() {
-                index = (index + 1) % totalSlides;
-                slider.style.transform = `translateX(-${index * 100}%)`;
-            }
+                <!-- Add more case studies -->
+            </div>
+        </div>
+    </section>
 
-            setInterval(slideNext, interval);
-        }
+    <!-- Testimonials -->
+    <section class="py-20 bg-darkBase">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-accentPurple to-goldAccent bg-clip-text text-transparent">
+                        Client Testimonials
+                    </span>
+                </h2>
+            </div>
 
-        document.addEventListener("DOMContentLoaded", function () {
-            startSlideshow("client-slider", 3000);
-            startSlideshow("testimonial-slider", 4000);
-        });
-    </script>
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const sidebar = document.getElementById("sidebar");
-        const closeMenu = document.getElementById("close-menu");
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <img src="/placeholders/client-1.jpg" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">CEO, Tech Innovators</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Their technical expertise helped us scale globally"</p>
+                    <div class="flex items-center">
+                        <div class="text-goldAccent">★★★★★</div>
+                    </div>
+                </div>
 
-        menuToggle.addEventListener("click", () => {
-            sidebar.classList.add("open");
-        });
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+    </section>
 
-        closeMenu.addEventListener("click", () => {
-            sidebar.classList.remove("open");
-        });
-    </script>
-
+    <!-- Partnership CTA -->
+    <section class="py-20 bg-gradient-to-br from-accentPurple to-premiumBlue">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-goldAccent to-white bg-clip-text text-transparent">
+                    Ready to Transform Your Business?
+                </span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join our growing list of satisfied clients and experience the Goldfish difference
+            </p>
+            <a href="Contacts.html" 
+               class="inline-block bg-goldAccent text-premiumBlue px-8 py-4 rounded-full hover:bg-opacity-90 transition-all font-semibold">
+                Start Your Journey
+            </a>
+        </div>
+    </section>
 </body>
-
 </html>
